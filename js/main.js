@@ -139,7 +139,7 @@ var app = new Vue({
         queueOperation: function(op){
             switch(op){
                 case "enqueue":
-                    this.theQueue.splice(Math.min((this.theQueue.length)-1,0),0,this.queueData);
+                    this.theQueue.splice(this.theQueue.length,0,this.queueData);
                     break;
 
                 case "dequeue":
