@@ -1,0 +1,104 @@
+//Imports
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+//Variables
+
+//Style
+.data-structure {
+
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  .data-s-button {
+    border: none;
+    background-color: blue;
+    border: 1px solid red;
+  }
+  .select-group {
+    display: flex;
+    flex-direction: column;
+    input,select,button {
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+  }
+  .linked-list-output {
+    margin-top: 15px;
+  }
+
+  .stack-output {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    span {
+      border: 1px solid green;
+      width: 6em;
+      text-align: center;
+    }
+  }
+  .queue-output {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    span {
+      border: 1px solid red;
+      width: 3em;
+      text-align: center;
+    }
+  }
+}
+
+.data-structure:last-child {
+  margin-bottom: 0;
+}
+
+.header, .footer {
+  background-color: dimgray;
+  height: 100px;
+}
+//General Styles
+#app {
+  padding: 0 10px;
+  margin: 100px 0;
+}
+
+body, div, p, span {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-size: 36px;
+}
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+}
+//Responsive Layout
+@media (min-width: 576px) {
+  .data-structure {
+    .select-group {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+
+  #app {
+    padding: 0 80px;
+  }
+}
+
+@media (min-width: 992px) {
+
+  #app {
+    padding: 0 150px;
+  }
+}
+
+@media (min-width: 1300px) {
+
+  #app {
+    padding: 0 390px;
+  }
+}
