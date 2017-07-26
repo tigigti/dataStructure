@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="header">
+
+</div>
+<div id="app">
+
+    <div id="linked-list" class="data-structure">
+        <h1>Einfach verkettete Liste</h1>
+        <p>Eine Liste, bestehend aus Elementen mit Vorwärtszeigern. Besitzt ein leeres Kopfelement "head" und einen Zeiger "current" (hier innerhalb von 2 '!' gekennzeichnet).
+        Die Knoten haben einen Wert 'data' und einen Verweis auf das nächste Element 'next'.</p>
+        <ul>
+            <li>insert(data): Füge Element mit Wert 'data' nach current ein.</li>
+            <li>remove(): Lösche Element nach current.</li>
+            <li>movetofront(): Setze current auf head.</li>
+            <li>next(): Setze current auf nächstes Element in der Liste.</li>
+            <li>end(): Ist current am Ende der Liste?</li>
+            <li>empty(): Ist die Liste leer?</li>
+            <li>read(): Wert des Elements nach current.</li>
+            <li>write(wert): Überschreibe 'data' des Elements nach current.</li>
+            <li>search(wert): Suche das Element rechts von current mit Data = 'wert' und setze current davor.</li>
+        </ul>
+        <div class="select-group">
+            <select v-model="selectedFunction">
+                <option value="insert">Insert</option>
+                <option value="remove">Remove</option>
+                <option value="movetofront">Move to front</option>
+                <option value="next">Next</option>
+                <option value="end">End?</option>
+                <option value="empty">Empty?</option>
+                <option value="read">Read</option>
+                <option value="write">Write</option>
+                <option value="search">Search</option>
+            </select>
+            <input v-if="selectedFunction == 'insert' || selectedFunction == 'write' || selectedFunction == 'search'" type="text" placeholder="Data" v-model="nodeData" v-on:keyup.enter="listOperation(selectedFunction)">
+            <button v-on:click="listOperation(selectedFunction)" class="data-s-button">OK</button>
+            <button v-on:click="buildRandomList" class="data-s-button">Add 10 Nodes</button>
+        </div>
+        <div class="linked-list-output">{{displayedList}}</div>
+    </div>
+
+    <div id="stack" class="data-structure">
+        <h1>Stack</h1>
+        <p>bla</p>
+        <div class="select-group">
+            <select v-model="selectedStackOp">
+                <option value="push" selected>Push</option>
+                <option value="pop">Pop</option>
+            </select>
+            <input v-if="selectedStackOp == 'push'" type="text" placeholder="Data" v-model="stackData" v-on:keyup.enter="stackOperation(selectedStackOp)">
+            <button v-on:click="stackOperation(selectedStackOp)" class="data-s-button">OK</button>
+            <button v-on:click="buildRandomStack" class="data-s-button">Add 10 Elements</button>
+        </div>
+        <div class="stack-output">
+            <span v-for="elem in theStack">{{elem}}</span>
+        </div>
+    </div>
+
+    <div id="queue" class="data-structure">
+        <h1>Queue</h1>
+        <p>Text</p>
+        <div class="select-group">
+            <select v-model="selectedQueueOp">
+                <option value="enqueue">Enqueue</option>
+                <option value="dequeue">Dequeue</option>
+            </select>
+            <input v-if="selectedQueueOp == 'enqueue'" type="text" placeholder="Data" v-model="queueData" v-on:keyup.enter="queueOperation(selectedQueueOp)">
+            <button v-on:click="queueOperation(selectedQueueOp)" class="data-s-button">OK</button>
+            <button v-on:click="buildRandomQueue" class="data-s-button">Add 10 Elements</button>
+        </div>
+        <div class="queue-output">
+            <span v-for="elem in theQueue">{{elem}}</span>
+        </div>
+    </div>
+</div>
+<div class="footer">
+
+</div>
+<script src="js/vue.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
