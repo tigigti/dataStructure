@@ -17,6 +17,7 @@ var app = new Vue({
         nodeData: "",
         linkedList: new linkedList(),
         displayedList: "",
+        //displayedListArray: [],
 
         stackData: "",
         selectedStackOp: "push",
@@ -31,8 +32,11 @@ var app = new Vue({
         buildList: function(){
             var tempNode = this.linkedList.head;
             var newList = "";
+            //var newListArray = [];
             while(tempNode != null){
                 tempNode != this.linkedList.current ? newList = newList.concat(tempNode.data+" -> ") : newList = newList.concat("!  "+tempNode.data+"  ! -> ");
+                //tempNode != this.linkedList.current ? newListArray.push(tempNode.data) : newListArray.push(tempNode.data);
+
                 tempNode = tempNode.next;
             }
             this.displayedList = newList;
